@@ -26,7 +26,7 @@ class Dice
     /** Fabrique statique : doit renvoyer un dé à 20 faces. */
     public static function d20(): self
     {
-        return new self(21);
+        return new self(20);
     }
 
     /** Doit renvoyer un entier tiré au hasard entre 1 et $sides inclus. */
