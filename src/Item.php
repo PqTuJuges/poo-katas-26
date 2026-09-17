@@ -19,7 +19,8 @@ abstract class Item implements \Stringable
         public readonly float $weight,
         public readonly Rarity $rarity = Rarity::Common,
     ) {
-        throw new \LogicException('À implémenter');
+        if ($weight < 0)
+            throw new \InvalidArgumentException("Un poids n'est pas négatif, $weight reçu.");
     }
 
     /** Doit renvoyer poids × multiplicateur de rareté (règle du jeu, arbitraire). Niveau 4. */

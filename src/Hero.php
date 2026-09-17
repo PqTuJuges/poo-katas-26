@@ -59,6 +59,7 @@ final class Hero implements Fighter
 
         $this->maxHp = $maxHp;
         $this->hp = $maxHp;
+        $this->inventory = new Inventory();
     }
 
     /** Doit retirer $amount points de vie, sans jamais descendre sous 0. */
