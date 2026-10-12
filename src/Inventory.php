@@ -84,6 +84,6 @@ final class Inventory implements \Countable, \IteratorAggregate
      */
     public function getIterator(): \Traversable
     {
-        throw new \LogicException('À implémenter');
+        return new \ArrayIterator($this->items);
     }
 }

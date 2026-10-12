@@ -17,12 +17,20 @@ enum Rarity: string
     /** Doit renvoyer le coefficient de valeur : 1.0, 1.5 ou 3.0. */
     public function multiplier(): float
     {
-        throw new \LogicException('À implémenter');
+        return match ($this) {
+            self::Common => 1.0,
+            self::Rare => 1.5,
+            self::Legendary => 3.0,
+        };
     }
 
     /** Doit renvoyer le libellé français : "Commun", "Rare", "Légendaire". */
     public function label(): string
     {
-        throw new \LogicException('À implémenter');
+        return match ($this) {
+            self::Common => 'Commun',
+            self::Rare => 'Rare',
+            self::Legendary => 'Légendaire',
+        };
     }
 }
