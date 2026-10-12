@@ -25,6 +25,26 @@ final class Battle
      */
     public function fight(): Fighter
     {
-        throw new \LogicException('À implémenter');
+        $attacker = $this->a;
+        $defender = $this->b;
+
+        while ($this->a->isAlive() && $this->b->isAlive()) {
+            // Les dégâts = attack() + un lancer de dé ($this->dice->roll())
+            $damage = $attacker->attack() + $this->dice->roll();
+            $defender->takeDamage($damage);
+
+            // Si le défenseur est mort après ce coup, le combat s'arrête immédiatement
+            if (!$defender->isAlive()) {
+                break;
+            }
+
+            // On échange les rôles pour le tour suivant
+            $temp = $attacker;
+            $attacker = $defender;
+            $defender = $temp;
+        }
+
+        // Renvoie celui qui est encore en vie
+        return $this->a->isAlive() ? $this->a : $this->b;
     }
 }
