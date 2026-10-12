@@ -14,7 +14,7 @@ final class Weapon extends Item
         public readonly int $damage,
         Rarity $rarity = Rarity::Common,
     ) {
-        parent::__construct($name,$weight,$rarity)
+        parent::__construct($name,$weight,$rarity);
     }
 
     /** Doit renvoyer : "Épée courte : arme (2 kg, 5 dégâts)". */
