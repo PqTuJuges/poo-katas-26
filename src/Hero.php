@@ -90,7 +90,7 @@ final class Hero implements Fighter
     public function drink(Potion $potion): void
     {
         $this->heal($potion->healing);
-        $this->inventory->remove($potion);
+        $this->inventory->remove($potion->name);
     }
 
     /** Doit renvoyer strength, plus les dégâts de l'arme équipée s'il y en a une. */
